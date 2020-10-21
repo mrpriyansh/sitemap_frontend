@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Page.module.css';
-import { ReactComponent as CancelSVG} from '../../images/cancel.svg';
+import { ReactComponent as CancelSVG} from '../../assets/icons/cancel.svg';
 import { useGlobal } from '../../services/context';
 import ReactTooltip from 'react-tooltip';
 

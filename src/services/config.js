@@ -1,8 +1,8 @@
 const apiUrl =
 process.env.NODE_ENV === 'production'
-  ? 'https://alumni-portal-backend-dot-tutorial-262713.el.r.appspot.com'
+  ? 'https://sitemap-api.herokuapp.com/'
   : 'http://localhost:3001';
-// const apiUrl = 'https://alumni-portal-backend-dot-tutorial-262713.el.r.appspot.com';
+// const apiUrl = 'https://sitemap-api.herokuapp.com/';
 const config = {
   apiUrl,
 };
