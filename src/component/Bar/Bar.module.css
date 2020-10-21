@@ -1,0 +1,30 @@
+.bar{
+    width: 100%;
+    min-height: 3em;
+    background-color: #65d1b7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+
+.title{
+    width: calc(100%/3);
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+.website{
+    width: calc(100%/3);
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+}
+
+.searchBox{
+    width: calc(100%/3);
+    display: flex;
+    justify-content: flex-end;
+}

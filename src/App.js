@@ -1,25 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Page from './component/Page/Page';
+import Landing from './component/Landing/Landing';
+import { Route, Switch } from 'react-router-dom';
+import Scrap from './component/Scrap/Scrap';
+import {GlobalContext} from './services/context';
+import { useLocation } from 'react-router';
 
 function App() {
+  const location =  useLocation();
+  const [data, setData] = useState('');
+  const [url, setUrl] = useState('');
+  const [response, setResponse] = useState();
+  // const [data, setData] = useState(location.state.detail.mapping[location.state.detail.url]);
+  // const [url, setUrl] = useState(location.state.detail.url);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalContext.Provider  value={{ data, setData, url, setUrl, response, setResponse }}>
+
+    <Switch>
+      <Route exact path="/sitemap" >
+        <Scrap />
+      </Route>
+      <Route exact path="/">
+        <Landing/>
+      </Route>
+        {/* <Page/> */}
+    </Switch>
+    </GlobalContext.Provider>
   );
 }
 
