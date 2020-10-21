@@ -28,8 +28,11 @@ function ChildrenHierarchy ({data, parentTitle, parentUrl}) {
           items: 1
         }
     };
-    const compartor = (a, b) => {
-        console.log(a, b);
+    const comparator = (a, b) => {
+        if(!response.mapping[a.url]) return 1;
+        if(!response.mapping[b.url] || response.mapping[b.url]?.children?.length < response.mapping[a.url]?.children?.length )  
+          return -1;
+        return 1;
     }
     const options = data.map((child, i)=>{
       return {name: `${child.title}(${child.url}) `, value: i }
@@ -41,7 +44,7 @@ function ChildrenHierarchy ({data, parentTitle, parentUrl}) {
         setData(response.mapping[url]);
     else setData({children:[], title, parent:parentUrl })
   }
-  console.log(children, data);
+  data.sort(comparator);
     return (
       
         <div className={styles.childrenhierarchy}>

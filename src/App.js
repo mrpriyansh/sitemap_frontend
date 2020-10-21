@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import Scrap from './component/Scrap/Scrap';
 import {GlobalContext} from './services/context';
 import { useLocation } from 'react-router';
+import Testing from './component/Processing/Processing';
 
 function App() {
   const location =  useLocation();
@@ -24,6 +25,9 @@ function App() {
       </Route>
       <Route exact path="/">
         <Landing/>
+      </Route>
+      <Route path="/processing">
+        <Testing />
       </Route>
         {/* <Page/> */}
     </Switch>

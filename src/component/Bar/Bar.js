@@ -32,7 +32,7 @@ function Bar () {
             <Link to="/" className={styles.title}>Home</Link>
             <span className={styles.website}> {response.url} </span>
             <div className={styles.searchBox}>
-                <SelectSearch options={options} value={data.title} search={true} name="language" placeholder="Search Page" onChange={onOptionChange}/>
+                <SelectSearch options={options} search={true} name="language" placeholder="Search Page" onChange={onOptionChange}/>
             </div>
         </div>
     )

@@ -5,28 +5,30 @@ import { useGlobal } from '../../services/context';
 import styles from './Landing.module.css';
 
 function Landing() {
-    const [inputUrl, changeInputUrl] = useState('');
+    const [inputUrl, changeInputUrl] = useState('https://mika.house/');
     const history = useHistory();
     const {setData, setUrl, setResponse} = useGlobal();
     const handleSubmit = e => {
         e.preventDefault();
-        fetch(`${config.apiUrl}/api/scrap`, {
-            method:'POST', 
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({url:inputUrl}),
-        })
-        .then(response => response.json().then(data => ({ status: response.status, body: data })))
-        .then(res=>{
-            setResponse(res.body);
-            setData(res.body.mapping[res.body.url]);
-            setUrl(res.body.url);
-           history.push({
-            pathname: '/sitemap'
-           })
-            // if(res.status===200){
+        // history.push(`/processing/?url=asdf`)
+        history.push(`/processing/?url=${inputUrl}`)
+        // fetch(`${config.apiUrl}/api/scrap`, {
+        //     method:'POST', 
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify({url:inputUrl}),
+        // })
+        // .then(response => response.json().then(data => ({ status: response.status, body: data })))
+        // .then(res=>{
+        //     setResponse(res.body);
+        //     setData(res.body.mapping[res.body.url]);
+        //     setUrl(res.body.url);
+        //    history.push({
+        //     pathname: '/processing/'
+        //    })
+        //     // if(res.status===200){
                 
-            // }
-        })
+        //     // }
+        // })
     }
     const onChangeURl = e => {
         changeInputUrl(e.target.value);
