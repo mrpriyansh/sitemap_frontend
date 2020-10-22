@@ -13,7 +13,7 @@
 }
 
 .input_field{
-    width: 35em;
+    width: 30em;
     height: 3em;
     background-color: #efeaea;
     border: none;
@@ -21,6 +21,18 @@
     margin: 1em 0 2em 0  ;
     padding: 0 2em;
     outline: none;
+}
+
+.input_number{
+    width: 10em;
+    height: 3em;
+    background-color: #efeaea;
+    border: none;
+    border-radius: 5px;
+    margin: 1em 0 2em 0  ;
+    padding: 0 2em;
+    outline: none;
+    margin-left: 1em;
 }
 
 .generate{

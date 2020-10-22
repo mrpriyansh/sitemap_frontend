@@ -9,9 +9,9 @@ function Hierarchy ({parent, url}) {
     return (
       <div className={styles.hierarchy}>
         <div className={styles.parent}>
-          <Page title={parent.title} url={url} parent={parent.parent} isParent={true} />
+          <Page title={parent?.title} url={url} parent={parent?.parent} isParent={true} />
         </div>
-        <ChildrenHierarchy data={parent.children} parentTitle={parent.title} parentUrl={url}/>
+        <ChildrenHierarchy data={parent?.children} parentTitle={parent?.title} parentUrl={url}/>
       </div>
     )
 }

@@ -13,11 +13,13 @@ function ChildrenHierarchy ({data, parentTitle, parentUrl}) {
         superLargeDesktop: {
           // the naming can be any, depends on you.
           breakpoint: { max: 4000, min: 3000 },
-          items: 4
+          items: 6,
+          slidesToSlide: 5
         },
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
-          items: 5
+          items: 5,
+          slidesToSlide: 4
         },
         tablet: {
           breakpoint: { max: 1024, min: 464 },
@@ -71,7 +73,7 @@ function ChildrenHierarchy ({data, parentTitle, parentUrl}) {
             </Carousel>
             
           {response.mapping[data[0]?.url]?.children?.length?<ChildrenHierarchy data={response.mapping[data[0]?.url]?.children} parentTitle={response.mapping[data[0]?.url]?.title} parentUrl={data[0]?.url}/> : null}
-          </> : <div className={styles.last_page}> This is the last page! Go upward </div> }
+          </> : <div className={styles.last_page}> This is the last page! Go upward if Possible! </div> }
         </div>
     )
 }

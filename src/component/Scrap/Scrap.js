@@ -11,8 +11,9 @@ function Scrap (props) {
     const history = useHistory();
     if(!response ) return <Redirect  to="/" />
     if(!response?.mapping[url]) {
+        console.log(response);
         alert('Please check the URL or contact adminstrator!');
-        history.push('/');
+        return <Redirect to="/" />
     }
     return (
         <div className={styles.scrap}>

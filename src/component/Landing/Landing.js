@@ -6,12 +6,13 @@ import styles from './Landing.module.css';
 
 function Landing() {
     const [inputUrl, changeInputUrl] = useState('https://mika.house/');
+    const [npages, setNpages] = useState(1);
     const history = useHistory();
     const {setData, setUrl, setResponse} = useGlobal();
     const handleSubmit = e => {
         e.preventDefault();
         // history.push(`/processing/?url=asdf`)
-        history.push(`/processing/?url=${inputUrl}`)
+        history.push(`/processing/?url=${inputUrl}&npages=${npages}`)
         // fetch(`${config.apiUrl}/api/scrap`, {
         //     method:'POST', 
         //     headers: {'Content-Type': 'application/json'},
@@ -33,6 +34,9 @@ function Landing() {
     const onChangeURl = e => {
         changeInputUrl(e.target.value);
     }
+    const onChangePageCount = e =>{
+        setNpages(e.target.value);
+    }
     return (
         <div className={styles.landing}>
             <div className={styles.text_wrapper}>
@@ -44,7 +48,10 @@ function Landing() {
                 </p>
             </div>
             <form onSubmit={handleSubmit} className={styles.form}>
-                <input type="url" className={styles.input_field} required placeholder="Enter domain url" value={inputUrl} onChange={onChangeURl}/>
+                <div className={styles.wrapper}>
+                    <input type="url" className={styles.input_field} required placeholder="Enter domain url" value={inputUrl} onChange={onChangeURl}/>
+                    <input type="number" min="0"  className={styles.input_number} required placeholder="Max page" value={npages} onChange={onChangePageCount} />
+                </div>
                 <button type="submit" className={styles.generate} > Generate</button>
             </form>
         </div>

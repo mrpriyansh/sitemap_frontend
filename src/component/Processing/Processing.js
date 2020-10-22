@@ -12,7 +12,7 @@ function Testing () {
     let socket;
     const [qSize, setqSize] = useState(0);
     const {setData, setUrl, setResponse} = useGlobal();
-    const { url } = queryString.parse(window.location.search);
+    const { url, npages } = queryString.parse(window.location.search);
     const history = useHistory();
     useEffect(()=>{
         socket = io(config.apiUrl);
@@ -20,7 +20,7 @@ function Testing () {
         //     console.log('joined');
 
         // })
-        socket.emit('sendMessage', url, ()=>{
+        socket.emit('sendMessage', url, npages, ()=>{
             console.log('sent');
         });
         socket.on('recieved', res => {
