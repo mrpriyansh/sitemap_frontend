@@ -67,3 +67,9 @@
     background-color: #65d1b7;
     border-radius: 5px;
 }
+
+.papa{
+    -webkit-box-shadow: 9px 10px 20px 2px rgba(101,209,183,1);
+    -moz-box-shadow: 9px 10px 20px 2px rgba(101,209,183,1);
+    box-shadow: 9px 10px 20px 2px rgba(101,209,183,1);
+}
