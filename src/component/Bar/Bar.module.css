@@ -16,15 +16,45 @@
     text-decoration: none;
 }
 
-.website{
+.website_wrapper{
     width: calc(100%/3);
     color: #fff;
     font-weight: 600;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .searchBox{
     width: calc(100%/3);
     display: flex;
     justify-content: flex-end;
+}
+
+.xml_icon{
+    width: 2em;
+    margin-left: 0.5em;
+    cursor: pointer;
+}
+.xml_icon_wrapper{
+    /* position: relative; */
+}
+
+.xml_icon_wrapper:hover span {
+    visibility: visible;
+}
+
+.overlay{
+
+    visibility: hidden;
+    /* width: 110%; */
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    top: 2.6em;
+    left: 39em;
+    padding: 5px 10px;
+    background-color: #00000096;
+    border-radius: 10px;
 }
