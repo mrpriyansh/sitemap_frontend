@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Page.module.css';
 import { ReactComponent as CancelSVG} from '../../assets/icons/cancel.svg';
 import { useGlobal } from '../../services/context';
-import ReactTooltip from 'react-tooltip';
 
 function Page({title, url, parent, isParent}) {
     const { setData, setUrl, response} = useGlobal();
@@ -23,7 +22,7 @@ function Page({title, url, parent, isParent}) {
             </div>
             <div className={styles.content}>
                 {parent?.length? <button onClick={goUpward}> Go Upward</button>: (!isParent && response.mapping[url]?.children?.length) ? <button onClick={showChildren}> Show Children</button> :  null }
-                <a href={url} target="_blank" ><button > Visit </button> </a>
+                <a href={url} target="_blank" rel="noopener noreferrer" ><button > Visit </button> </a>
             </div>
         </div>
     )

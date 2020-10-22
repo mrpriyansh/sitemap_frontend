@@ -38,13 +38,13 @@ function Testing () {
         })
         return ()=>{socket.close();}
     }, [])
-    const handleClick = () => {
-        const url = 'https://mika.house/';
+    // const handleClick = () => {
+    //     const url = 'https://mika.house/';
 
-        socket.emit('sendMessage', url, () => {
-            console.log('sent');
-        });
-    }
+    //     socket.emit('sendMessage', url, () => {
+    //         console.log('sent');
+    //     });
+    // }
     return (
         <div className={styles.processing}>
 

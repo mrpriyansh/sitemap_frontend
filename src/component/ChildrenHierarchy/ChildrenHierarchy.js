@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './ChildrenHierarchy.module.css';
 import Carousel from 'react-multi-carousel';
 import Page from '../Page/Page';
@@ -7,7 +7,6 @@ import { useGlobal } from '../../services/context';
 import SelectSearch from 'react-select-search';
 
 function ChildrenHierarchy ({data, parentTitle, parentUrl}) {
-    const [children, changeChildren] = useState(data);
     const {response, setUrl, setData} = useGlobal();
     const responsive = {
         superLargeDesktop: {

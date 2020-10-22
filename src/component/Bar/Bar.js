@@ -16,7 +16,7 @@ function Bar () {
     //         ]
     //     },
     // ];
-    const {response, setUrl, setData, data, url} = useGlobal();
+    const {response, setUrl, setData} = useGlobal();
     const options = response.pages.map((page, i)=>{
         return {name: `${page.title}(${page.url}) `, value: i }
     });

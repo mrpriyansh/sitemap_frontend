@@ -1,16 +1,12 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Page from './component/Page/Page';
 import Landing from './component/Landing/Landing';
 import { Route, Switch } from 'react-router-dom';
 import Scrap from './component/Scrap/Scrap';
 import {GlobalContext} from './services/context';
-import { useLocation } from 'react-router';
 import Testing from './component/Processing/Processing';
 
 function App() {
-  const location =  useLocation();
   const [data, setData] = useState('');
   const [url, setUrl] = useState('');
   const [response, setResponse] = useState();

@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { Redirect, useHistory } from 'react-router';
-import config from '../../services/config';
-import { useGlobal } from '../../services/context';
+import { useHistory } from 'react-router';
 import styles from './Landing.module.css';
 
 function Landing() {
     const [inputUrl, changeInputUrl] = useState('https://mika.house/');
     const [npages, setNpages] = useState(1);
     const history = useHistory();
-    const {setData, setUrl, setResponse} = useGlobal();
     const handleSubmit = e => {
         e.preventDefault();
         // history.push(`/processing/?url=asdf`)
