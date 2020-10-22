@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SelectSearch from 'react-select-search';
 import styles from './Bar.module.css';
@@ -21,12 +21,14 @@ function Bar() {
   //         ]
   //     },
   // ];
+  const [isLoading, setIsLoading] = useState(false);
   const { response, setUrl, setData } = useGlobal();
   const options = response.pages.map((page, i) => {
     return { name: `${page.title}(${page.url}) `, value: i };
   });
   const generateXML = e => {
     console.log('a');
+    setIsLoading(true);
     fetch(`${config.apiUrl}/api/generatexml`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -36,6 +38,9 @@ function Bar() {
       .then(res => {
         console.log(res);
         fileDownload(res.body, `${response.url}.xml`);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
   const onOptionChange = e => {
@@ -53,7 +58,7 @@ function Bar() {
         <span className={styles.website}> {response.url} </span>
         <div className={styles.xml_icon_wrapper}>
           <XMLICON className={styles.xml_icon} fill="#fff" onClick={generateXML} />
-          <span className={styles.overlay}>Download Sitemap!</span>
+          <span className={styles.overlay}>{isLoading ? `Wait!` : `Download Sitemap!`}</span>
         </div>
         {/* <img src={xmlIcon} className={styles.xml_icon} alt="xmlPNG" onClick={generateXML} /> */}
       </div>
